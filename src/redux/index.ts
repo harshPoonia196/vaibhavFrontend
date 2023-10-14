@@ -1,18 +1,9 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {persistStore} from 'redux-persist';
-
-import admin from './admin';
-import advertisements from './advertisement';
-import documents from './documents';
-import procedures from './procedures';
-import users from './todo';
+import toDos from './todo';
 
 const combinedReducer = combineReducers({
-  admin,
-  users,
-  documents,
-  advertisements,
-  procedures,
+  toDos,
 });
 
 export const store = configureStore({

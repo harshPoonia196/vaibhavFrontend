@@ -11,12 +11,19 @@
 import React from 'react';
 import Todo from './Todo';
 import {NativeBaseProvider} from 'native-base';
+import {persistor, store} from './redux';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
   return (
-    <NativeBaseProvider>
-      <Todo />
-    </NativeBaseProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <NativeBaseProvider>
+          <Todo />
+        </NativeBaseProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 

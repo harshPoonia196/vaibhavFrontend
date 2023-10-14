@@ -11,9 +11,9 @@ const initialState: IUsersInitialState = {
 
 const getAllToDos = createAsyncThunk<any, any, RejectValue>(
   '/get-all-toDos',
-  async query => {
+  async () => {
     try {
-      const {data} = await todoServices.getAllToDos(query);
+      const {data} = await todoServices.getAllToDos();
       return data;
     } catch (err) {
       console.log(' err ===========>', err);
@@ -22,8 +22,8 @@ const getAllToDos = createAsyncThunk<any, any, RejectValue>(
   },
 );
 
-const Users = createSlice({
-  name: 'users',
+const ToDos = createSlice({
+  name: 'todo',
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -43,4 +43,4 @@ export const useUsersActions = () => {
   };
 };
 
-export default Users.reducer;
+export default ToDos.reducer;
