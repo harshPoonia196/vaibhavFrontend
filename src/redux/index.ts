@@ -1,9 +1,8 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import {persistStore} from 'redux-persist';
-import toDos from './todo';
+import todo from './todo';
 
 const combinedReducer = combineReducers({
-  toDos,
+  todo,
 });
 
 export const store = configureStore({
@@ -12,5 +11,3 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
-export const persistor = persistStore(store);
